@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Algerian FMI Prediction</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background: #f4f4f9;
+    }
+    h1 {
+      color: #d9534f;
+    }
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      max-width: 500px;
+    }
+    input, button, select {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      background: #d9534f;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #b52b27;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Algerian Fire Prediction 🔥</h1>
+
+  <form action="{{ url_for('predict_datapoint')}}" method="post">
+    <input type="text" name="Temperature" placeholder="Temperature (°C)" required>
+    <input type="text" name="RH" placeholder="Relative Humidity (%)" required>
+    <input type="text" name="Ws" placeholder="Wind Speed (km/h)" required>
+    <input type="text" name="Rain" placeholder="Rain (mm/m²)" required>
+    <input type="text" name="FFMC" placeholder="FFMC" required>
+    <input type="text" name="DMC" placeholder="DMC" required>
+    <input type="text" name="ISI" placeholder="ISI" required>
+    <input type="text" name="Classes" placeholder="Classes" required>
+    <input type="text" name="Region" placeholder="Region" required>
+
+
+    <button type="submit">Predict</button>
+  </form>
+
+  <h2>THE FWI PREDICTION IS {{prediction_text}}</h2>
+</body>
+</html>
